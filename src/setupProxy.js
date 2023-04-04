@@ -1,24 +1,24 @@
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.use(
-    '/api1',
+    "/api1",
     createProxyMiddleware({
-      target: 'https://od.moi.gov.tw',
+      target: "https://od.moi.gov.tw",
       changeOrigin: true,
       pathRewrite: {
-        '^/api1': '/api/v1/rest/datastore/301000000A-000082-033',
+        "^/api1": "/api/v1/rest/datastore/301000000A-000082-033",
       },
     })
   );
-  
+
   app.use(
-    '/api2',
+    "/api2",
     createProxyMiddleware({
-      target: 'https://od.moi.gov.tw',
+      target: "https://od.moi.gov.tw",
       changeOrigin: true,
       pathRewrite: {
-        '^/api2': '/api/v1/rest/datastore/301000000A-000082-049',
+        "^/api2": "/api/v1/rest/datastore/301000000A-000082-049",
       },
     })
   );
